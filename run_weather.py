@@ -3,10 +3,11 @@ from bs4 import BeautifulSoup
 
 class PageParser(object):
    def __init__(self, url):
-       self.response = requests.get(url)
+       self.url = url
 
    def weather(self):
-       soup = BeautifulSoup(self.response.text, 'html.parser')
+       response = requests.get(self.url)
+       soup = BeautifulSoup(response.text, 'html.parser')
        tag_selected = soup.select('.today-temp')
        print(tag_selected[0].text)
        return tag_selected[0].text
