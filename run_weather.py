@@ -11,8 +11,7 @@ class PageParser(object):
        tag_selected = soup.select('.today-temp')
        return tag_selected[0].text
 
-weather = PageParser()
-
 if __name__ == '__main__':
+    weather = PageParser()
     temperature = weather.temperature()
     print('Kyiv: %s' % temperature)
